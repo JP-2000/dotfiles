@@ -43,6 +43,18 @@ mkdir -p "$HOME/.config"
 ln -s "$HOME/dotfiles/alacritty/.config/alacritty" "$HOME/.config/alacritty"
 ```
 
+## Ghostty
+
+Includes the terminal config and Everforest Dark Soft theme.
+Uses JetBrainsMono Nerd Font Mono.
+
+On a new machine, make sure `~/.config/ghostty` does not already exist, then link:
+
+```sh
+mkdir -p "$HOME/.config"
+ln -s "$HOME/dotfiles/ghostty" "$HOME/.config/ghostty"
+```
+
 ## Adding configs
 
 Add one application at a time:
@@ -56,4 +68,4 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux and Alacritty added and linked. Other configs are unchanged.
+tmux, Alacritty, and Ghostty added and linked. Other configs are unchanged.
