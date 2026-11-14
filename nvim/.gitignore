@@ -1,0 +1,14 @@
+# Local plugin state
+.local-history/
+
+# opencode local dependencies
+.opencode/node_modules/
+.opencode/package.json
+.opencode/package-lock.json
+.opencode/bun.lock
+
+# Editor/runtime temp files
+*.swp
+*.swo
+*~
+.DS_Store

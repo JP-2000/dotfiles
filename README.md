@@ -129,6 +129,24 @@ ln -s "$HOME/dotfiles/opencode/skills/write-git-conventional-commit/SKILL.md" "$
 
 Link only these files, not the whole OpenCode config directory.
 
+## Neovim
+
+Includes the Lua config, plugin lockfile, and documentation.
+The old Git repository was backed up separately; this config now belongs to dotfiles.
+
+On a new machine, make sure `~/.config/nvim` does not already exist, then link:
+
+```sh
+mkdir -p "$HOME/.config"
+ln -s "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
+```
+
+Local history stays ignored. Installed plugins and sessions remain in Neovim's
+data and state directories, outside this repo.
+
+The dashboard image is still at `~/Pictures/neovim-dashboard-image.png` and is
+not included here. See `nvim/ODIN.md` and `nvim/PYTHON_DEBUGGING.md` for tool setup.
+
 ## Adding configs
 
 Add one application at a time:
@@ -142,6 +160,6 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux, Alacritty, Ghostty, Bash, Git, Tridactyl, the Harlequin launcher, and OpenCode
-added and linked.
+tmux, Alacritty, Ghostty, Bash, Git, Tridactyl, the Harlequin launcher, OpenCode,
+and Neovim added and linked.
 Other configs are unchanged.
