@@ -23,3 +23,19 @@
 .env
 .env.*
 !.env.example
+
+# Downloaded dependencies and Python caches
+node_modules/
+__pycache__/
+*.pyc
+
+# OpenCode runtime files
+/opencode/service.json
+/opencode/auth.json
+/opencode/cache/
+/opencode/log/
+/opencode/sessions/
+/.opencode/package.json
+/.opencode/package-lock.json
+/.opencode/bun.lock
+/.opencode/bun.lockb

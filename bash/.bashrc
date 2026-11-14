@@ -106,30 +106,6 @@ fi
 ####################################################################################################
 # Environment variables
 
-# Created by `pipx` on 2024-07-23 08:47:15
-export PATH="$PATH:/home/jiten-patel/.local/bin"
-
-# JAVA Environment
-export JAVA_HOME="/lib/jvm/java-21-openjdk-amd64"
-export PATH="$PATH:$JAVA_HOME/bin"
-
-# Maven
-export M2_HOME="/usr/local/apache-maven/apache-maven-3.9.8"
-export M2="$M2_HOME/bin"
-export MAVEN_OPTS="-Xms256m -Xmx512m"
-export PATH="$PATH:$M2"
-
-# Antlr4
-export CLASSPATH=".:/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
-# simplify the use of the tool to generate lexer and parser
-alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
-# simplify the use of the tool to test the generated code
-alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
-
-# JDepend
-export JDEPEND_HOME="/usr/local/jdepend-2.10"
-export CLASSPATH="$CLASSPATH:$JDEPEND_HOME/lib/jdepend-<version>.jar"
-
 # Neovim Default Editor
 export EDITOR=nvim
 export VISUAL=nvim
@@ -141,9 +117,6 @@ alias chb='sudo headsetcontrol -b'
 
 # edit keyd and reload
 alias kd='sudoedit /etc/keyd/default.conf && sudo keyd reload'
-
-# ls with color mode
-alias ls='ls -G'
 
 # ll to ls -lart
 alias ll='ls -larth'
@@ -209,50 +182,77 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] > "
 
 ####################################################################################################
 # load rvm (ruby version manager) if installed
-[ -s /etc/profile.d/rvm.sh ] && source /etc/profile.d/rvm.sh
+if [ -r /etc/profile.d/rvm.sh ]; then
+    source /etc/profile.d/rvm.sh
+fi
 
 ####################################################################################################
 # haskell 
-[ -f "/home/jiten-patel/.ghcup/env" ] && . "/home/jiten-patel/.ghcup/env" # ghcup-env
+if [ -r "$HOME/.ghcup/env" ]; then
+    . "$HOME/.ghcup/env"
+fi
 
 ####################################################################################################
 # prolog
-export SWIVM_DIR="/home/jiten-patel/.swivm"
-[ -s "$SWIVM_DIR/swivm.sh" ] && . "$SWIVM_DIR/swivm.sh"  # This loads swivm
+export SWIVM_DIR="$HOME/.swivm"
+if [ -r "$SWIVM_DIR/swivm.sh" ]; then
+    . "$SWIVM_DIR/swivm.sh"
+fi
 
 ####################################################################################################
 # terraform
-complete -C /usr/bin/terraform terraform
+if command -v terraform > /dev/null 2>&1; then
+    complete -C "$(command -v terraform)" terraform
+fi
 
 ####################################################################################################
 # node
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -r "$NVM_DIR/nvm.sh" ]; then
+    . "$NVM_DIR/nvm.sh"
+fi
+if [ -r "$NVM_DIR/bash_completion" ]; then
+    . "$NVM_DIR/bash_completion"
+fi
 
 ####################################################################################################
-# rust
-export PATH="/home/jiten-patel/.cargo/bin:$PATH"
-
-####################################################################################################
-
-# neovim 
-export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
-
 # git subrepo
-source ~/apps/git-subrepo/.rc
+if [ -r "$HOME/apps/git-subrepo/.rc" ]; then
+    source "$HOME/apps/git-subrepo/.rc"
+fi
 
 # opencode
-export PATH=/home/jitenpatel/.opencode/bin:$PATH
+if [ -d "$HOME/.opencode/bin" ]; then
+    case ":$PATH:" in
+        *:"$HOME/.opencode/bin":*)
+            ;;
+        *)
+            export PATH="$HOME/.opencode/bin:$PATH"
+            ;;
+    esac
+fi
 
-. "$HOME/.local/bin/env"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/opt/odin:$PATH"
+# Local tools and Rust
+if [ -r "$HOME/.local/bin/env" ]; then
+    . "$HOME/.local/bin/env"
+fi
+if [ -r "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+
+# Odin
+if [ -d /opt/odin ]; then
+    case ":$PATH:" in
+        *:/opt/odin:*)
+            ;;
+        *)
+            export PATH="/opt/odin:$PATH"
+            ;;
+    esac
+fi
+
 ####################################################################################################
 fixclock() {
     sudo chronyc makestep &&
     sudo hwclock --systohc --utc
 }
-
-. "$HOME/.cargo/env"

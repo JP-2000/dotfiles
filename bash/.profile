@@ -1,3 +1,8 @@
+# Optional tool environments
+if [ -r "$HOME/.local/bin/env" ]; then
+    . "$HOME/.local/bin/env"
+fi
 
-. "$HOME/.local/bin/env"
-. "$HOME/.cargo/env"
+if [ -r "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi

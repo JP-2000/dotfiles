@@ -7,5 +7,6 @@ fi
 
 # User specific environment and startup programs
 
-. "$HOME/.local/bin/env"
-. "$HOME/.cargo/env"
+if [ -r "$HOME/.profile" ]; then
+    . "$HOME/.profile"
+fi

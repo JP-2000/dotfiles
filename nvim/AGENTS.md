@@ -6,7 +6,7 @@
 - `lazy-lock.json` pins plugin revisions; update it only when intentionally changing/updating plugins.
 - Do not treat `.local-history/` as source; it is local state from `vim-local-history`.
 - Formatting is configured through conform.nvim: Lua uses `stylua`, Python uses `ruff_format`.
-- Python linting uses `ruff`; Python LSP is `basedpyright` installed through mason-lspconfig.
+- Python linting uses `ruff`; Python LSP is `pyright` installed through mason-lspconfig.
 - Python DAP setup expects a `debugpy-adapter` executable: `require("dap-python").setup("debugpy-adapter")`.
 - Treesitter parsers are installed for `lua`, `vim`, `vimdoc`, `query`, `c`, and `python`; `nvim-treesitter` runs `:TSUpdate` on build.
 - For a basic startup/plugin-load check after config edits, run `nvim --headless "+Lazy! load all" "+qa"` from this directory.

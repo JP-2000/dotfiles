@@ -58,7 +58,8 @@ ln -s "$HOME/dotfiles/ghostty" "$HOME/.config/ghostty"
 ## Bash
 
 Includes `.bashrc`, `.bash_aliases`, `.bash_profile`, and `.profile`.
-Existing paths and tool setup are unchanged.
+Optional tool setup is loaded only when available. Java and other system tools
+use their installed commands instead of hardcoded installation paths.
 
 On a new machine, make sure these files do not already exist in your home, then link:
 
@@ -69,8 +70,8 @@ ln -s "$HOME/dotfiles/bash/.bash_profile" "$HOME/.bash_profile"
 ln -s "$HOME/dotfiles/bash/.profile" "$HOME/.profile"
 ```
 
-The startup files source `~/.local/bin/env`, `~/.cargo/env`, and
-`~/apps/git-subrepo/.rc`. These are not included here.
+The startup files can source `~/.local/bin/env`, `~/.cargo/env`, and
+`~/apps/git-subrepo/.rc`. These are not included here and are skipped when missing.
 
 ## Git
 
