@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "everforest-soft",
+    "mode": "light"
+  },
+  "prompt": {
+    "image_preview": true,
+    "paste": "full"
+  },
+  "session": {
+    "image_preview": true,
+    "sidebar": "hide",
+    "verbosity": "low"
+  },
+  "animations": true,
+  "terminal": {
+    "copy": "select"
+  },
+  "tabs": {
+    "indicators": "status",
+    "mode": "off"
+  },
+  "debug": {
+    "devtools": false
+  }
+}

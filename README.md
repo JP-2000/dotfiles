@@ -112,6 +112,23 @@ ln -s "$HOME/dotfiles/scripts/harlequin-everforest" "$HOME/.local/bin/harlequin-
 The script currently uses `/home/jitenpatel/.local/share/uv/tools/harlequin/bin/python`.
 That environment must exist; the interpreter path is unchanged.
 
+## OpenCode
+
+Includes the settings, Everforest theme, and conventional commit skill.
+Service files, credentials, and session data stay outside this repo.
+
+On a new machine, make sure the destination files do not already exist, then link:
+
+```sh
+mkdir -p "$HOME/.config/opencode/themes" "$HOME/.config/opencode/skills/write-git-conventional-commit"
+ln -s "$HOME/dotfiles/opencode/opencode.jsonc" "$HOME/.config/opencode/opencode.jsonc"
+ln -s "$HOME/dotfiles/opencode/cli.json" "$HOME/.config/opencode/cli.json"
+ln -s "$HOME/dotfiles/opencode/themes/everforest-soft.json" "$HOME/.config/opencode/themes/everforest-soft.json"
+ln -s "$HOME/dotfiles/opencode/skills/write-git-conventional-commit/SKILL.md" "$HOME/.config/opencode/skills/write-git-conventional-commit/SKILL.md"
+```
+
+Link only these files, not the whole OpenCode config directory.
+
 ## Adding configs
 
 Add one application at a time:
@@ -125,5 +142,6 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux, Alacritty, Ghostty, Bash, Git, Tridactyl, and the Harlequin launcher added and linked.
+tmux, Alacritty, Ghostty, Bash, Git, Tridactyl, the Harlequin launcher, and OpenCode
+added and linked.
 Other configs are unchanged.
