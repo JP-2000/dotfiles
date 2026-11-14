@@ -82,6 +82,20 @@ On a new machine, make sure `~/.gitconfig` does not already exist, then link:
 ln -s "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 ```
 
+## Tridactyl
+
+Includes `tridactylrc` with Firefox keyboard shortcuts.
+Requires the Tridactyl extension and its native messenger.
+
+On a new machine, make sure `~/.config/tridactyl` does not already exist, then link:
+
+```sh
+mkdir -p "$HOME/.config"
+ln -s "$HOME/dotfiles/tridactyl" "$HOME/.config/tridactyl"
+```
+
+In Firefox, run `:source` or press `,r` to reload the config.
+
 ## Adding configs
 
 Add one application at a time:
@@ -95,4 +109,5 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux, Alacritty, Ghostty, Bash, and Git added and linked. Other configs are unchanged.
+tmux, Alacritty, Ghostty, Bash, Git, and Tridactyl added and linked.
+Other configs are unchanged.

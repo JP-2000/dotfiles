@@ -1,0 +1,18 @@
+" Tridactyl starter configuration.
+" Requires the native messenger. Load with :source or press ,r.
+
+" Follow the system's light/dark theme.
+colors auto
+
+" Use home-row letters for link hints (f / F).
+set hintchars asdfghjkl
+
+" Shift-j / Shift-k: previous / next tab.
+bind J tabprev
+bind K tabnext
+
+" Reload this configuration after editing it.
+bind ,r source
+
+" Useful defaults: j/k scroll, H/L back/forward, o/t open URL or search,
+" f/F follow a link in this tab/a background tab, d close tab, u reopen tab.
