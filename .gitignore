@@ -1,0 +1,25 @@
+# Temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backups
+*.bak
+*.backup
+*.backup-*
+/backups/
+
+# Local history
+.local-history/
+.bash_history
+.zsh_history
+
+# tmux downloads and saved sessions
+/tmux/.tmux/plugins/
+/tmux/.tmux/resurrect/
+
+# Local environment files
+.env
+.env.*
+!.env.example
