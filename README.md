@@ -19,7 +19,7 @@ Links are currently created with `ln -s`; no extra tools are needed.
 
 Includes `.tmux.conf` and the centered-pane script.
 
-On a new machine, back up any existing files at these locations, then link:
+On a new machine, make sure the destination files do not already exist, then link:
 
 ```sh
 mkdir -p "$HOME/.tmux/scripts"
@@ -31,11 +31,23 @@ The config uses TPM for plugins and `xclip` for clipboard copying. Install TPM
 separately at `~/.tmux/plugins/tpm`, then press `Ctrl-a I` in tmux to install
 plugins. Plugins and saved sessions stay outside this repo.
 
+## Alacritty
+
+Includes the terminal config and Everforest Dark Soft theme.
+Uses JetBrainsMono Nerd Font Mono.
+
+On a new machine, make sure `~/.config/alacritty` does not already exist, then link:
+
+```sh
+mkdir -p "$HOME/.config"
+ln -s "$HOME/dotfiles/alacritty/.config/alacritty" "$HOME/.config/alacritty"
+```
+
 ## Adding configs
 
 Add one application at a time:
 
-1. Choose its config files and back them up outside this repo.
+1. Choose its config files and check for conflicts.
 2. Move them here without changing their contents.
 3. Create the symlinks and check that the application still works.
 4. Review and commit before adding the next application.
@@ -44,4 +56,4 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux added and linked. Other configs are unchanged.
+tmux and Alacritty added and linked. Other configs are unchanged.
