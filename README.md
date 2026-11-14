@@ -55,6 +55,23 @@ mkdir -p "$HOME/.config"
 ln -s "$HOME/dotfiles/ghostty" "$HOME/.config/ghostty"
 ```
 
+## Bash
+
+Includes `.bashrc`, `.bash_aliases`, `.bash_profile`, and `.profile`.
+Existing paths and tool setup are unchanged.
+
+On a new machine, make sure these files do not already exist in your home, then link:
+
+```sh
+ln -s "$HOME/dotfiles/bash/.bashrc" "$HOME/.bashrc"
+ln -s "$HOME/dotfiles/bash/.bash_aliases" "$HOME/.bash_aliases"
+ln -s "$HOME/dotfiles/bash/.bash_profile" "$HOME/.bash_profile"
+ln -s "$HOME/dotfiles/bash/.profile" "$HOME/.profile"
+```
+
+The startup files source `~/.local/bin/env`, `~/.cargo/env`, and
+`~/apps/git-subrepo/.rc`. These are not included here.
+
 ## Adding configs
 
 Add one application at a time:
@@ -68,4 +85,4 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux, Alacritty, and Ghostty added and linked. Other configs are unchanged.
+tmux, Alacritty, Ghostty, and Bash added and linked. Other configs are unchanged.
