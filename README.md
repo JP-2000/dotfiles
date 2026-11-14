@@ -96,22 +96,6 @@ ln -s "$HOME/dotfiles/tridactyl" "$HOME/.config/tridactyl"
 
 In Firefox, run `:source` or press `,r` to reload the config.
 
-## Harlequin
-
-Includes the custom Everforest launcher used by the Bash `harlequin` alias.
-The installed Harlequin Python environment stays outside this repo.
-
-On a new machine, make sure `~/.local/bin/harlequin-everforest` does not already
-exist, then link:
-
-```sh
-mkdir -p "$HOME/.local/bin"
-ln -s "$HOME/dotfiles/scripts/harlequin-everforest" "$HOME/.local/bin/harlequin-everforest"
-```
-
-The script currently uses `/home/jitenpatel/.local/share/uv/tools/harlequin/bin/python`.
-That environment must exist; the interpreter path is unchanged.
-
 ## OpenCode
 
 Includes the settings, Everforest theme, and conventional commit skill.
@@ -199,7 +183,7 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux, Alacritty, Ghostty, Bash, Git, Tridactyl, the Harlequin launcher, OpenCode,
+tmux, Alacritty, Ghostty, Bash, Git, Tridactyl, OpenCode,
 and Neovim added and linked. keyd's user files are linked; its system config is
 tracked as a copy.
 Other configs are unchanged.
