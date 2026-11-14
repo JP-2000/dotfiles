@@ -72,6 +72,16 @@ ln -s "$HOME/dotfiles/bash/.profile" "$HOME/.profile"
 The startup files source `~/.local/bin/env`, `~/.cargo/env`, and
 `~/apps/git-subrepo/.rc`. These are not included here.
 
+## Git
+
+Includes `.gitconfig` with my name, email, and default branch.
+
+On a new machine, make sure `~/.gitconfig` does not already exist, then link:
+
+```sh
+ln -s "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+```
+
 ## Adding configs
 
 Add one application at a time:
@@ -85,4 +95,4 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 
 ## Status
 
-tmux, Alacritty, Ghostty, and Bash added and linked. Other configs are unchanged.
+tmux, Alacritty, Ghostty, Bash, and Git added and linked. Other configs are unchanged.
