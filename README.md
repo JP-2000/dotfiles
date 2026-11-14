@@ -154,6 +154,38 @@ ln -s "$HOME/dotfiles/assets/neovim-dashboard-image.png" "$HOME/Pictures/neovim-
 
 See `nvim/ODIN.md` and `nvim/PYTHON_DEBUGGING.md` for tool setup.
 
+## keyd
+
+Includes the keyboard layers, layer notification script, and its user service.
+Notifications require GNOME's Custom OSD extension (`custom-osd@neuromorph`)
+to be installed and enabled. The listener also needs permission to run `keyd listen`.
+
+Make sure the destination files do not already exist, then link the user files:
+
+```sh
+mkdir -p "$HOME/.local/bin" "$HOME/.config/systemd/user"
+ln -s "$HOME/dotfiles/keyd/keyd-layer-listener" "$HOME/.local/bin/keyd-layer-listener"
+ln -s "$HOME/dotfiles/keyd/keyd-layer-listener.service" "$HOME/.config/systemd/user/keyd-layer-listener.service"
+```
+
+`keyd/default.conf` is a copy, not a symlink. With keyd installed, review it before
+installing it as the system config. These commands replace `/etc/keyd/default.conf`
+and apply the keyboard mappings:
+
+```sh
+sudo install -D -o root -g root -m 0644 "$HOME/dotfiles/keyd/default.conf" /etc/keyd/default.conf
+sudo keyd reload
+```
+
+On a new machine, start the listener after installing its dependencies:
+
+```sh
+systemctl --user daemon-reload
+systemctl --user enable --now keyd-layer-listener.service
+```
+
+Repeat the system config install and reload when changing `keyd/default.conf`.
+
 ## Adding configs
 
 Add one application at a time:
@@ -168,5 +200,6 @@ Keep passwords, API keys, installed plugins, and session data out of Git.
 ## Status
 
 tmux, Alacritty, Ghostty, Bash, Git, Tridactyl, the Harlequin launcher, OpenCode,
-and Neovim added and linked.
+and Neovim added and linked. keyd's user files are linked; its system config is
+tracked as a copy.
 Other configs are unchanged.

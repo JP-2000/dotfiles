@@ -1,0 +1,12 @@
+[Unit]
+Description=keyd Layer OSD Listener
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/keyd-layer-listener
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

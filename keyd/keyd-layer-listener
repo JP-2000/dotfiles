@@ -1,0 +1,25 @@
+#!/bin/bash
+
+OSD_SCHEMA="$HOME/.local/share/gnome-shell/extensions/custom-osd@neuromorph/schemas"
+
+show_osd() {
+    GSETTINGS_SCHEMA_DIR="$OSD_SCHEMA" \
+        gsettings set org.gnome.shell.extensions.custom-osd showosd \
+        "$RANDOM,,$1,"
+}
+
+keyd listen | while IFS= read -r line; do
+    case "$line" in
+        "/nav")
+            show_osd "NAV"
+            ;;
+
+        "/utility")
+            show_osd "UTILITY"
+            ;;
+
+        "/main")
+            show_osd "MAIN"
+            ;;
+    esac
+done
