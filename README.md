@@ -144,8 +144,15 @@ ln -s "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 Local history stays ignored. Installed plugins and sessions remain in Neovim's
 data and state directories, outside this repo.
 
-The dashboard image is still at `~/Pictures/neovim-dashboard-image.png` and is
-not included here. See `nvim/ODIN.md` and `nvim/PYTHON_DEBUGGING.md` for tool setup.
+The dashboard image lives in `assets/`. Make sure
+`~/Pictures/neovim-dashboard-image.png` does not already exist, then link:
+
+```sh
+mkdir -p "$HOME/Pictures"
+ln -s "$HOME/dotfiles/assets/neovim-dashboard-image.png" "$HOME/Pictures/neovim-dashboard-image.png"
+```
+
+See `nvim/ODIN.md` and `nvim/PYTHON_DEBUGGING.md` for tool setup.
 
 ## Adding configs
 
